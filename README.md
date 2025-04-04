@@ -1,6 +1,7 @@
-# Black-Scholes pricing model
+# Black-Scholes Pricing Model
 
-This is the source code of the Black-Scholes pricing model web application.
+This is the source code of the Black-Scholes pricing model web application,
+which gives a theoretical estimate of the price of European-style options.
 
 See https://en.wikipedia.org/wiki/Black–Scholes_model
 
