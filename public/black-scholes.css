@@ -1,1 +1,3 @@
-﻿
+﻿@media screen and ( max-width: 320px ) {
+  div#offcanvas.open { width: 100%; }
+}
