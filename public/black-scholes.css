@@ -1,3 +1,23 @@
-﻿@media screen and ( max-width: 320px ) {
-  div#offcanvas.open { width: 100%; }
+﻿/*
+.btn-outline-secondary {
+    border-color: transparent;
 }
+
+div.input-group {
+    border: 1px solid red;
+    border-radius: 0.5rem;
+}
+div.input-group input {
+    border-width: 0;
+}
+div.input-group .btn {
+    transition: none;
+}
+div.input-group .btn:focus,
+div.input-group .btn:active:focus,
+div.input-group .btn-link.nav-link:focus,
+div.input-group .form-control:focus,
+div.input-group .form-check-input:focus {
+    box-shadow: none;
+}
+*/
