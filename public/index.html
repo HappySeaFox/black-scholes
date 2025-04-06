@@ -71,7 +71,7 @@
           </div>
         </div>
 
-        <main class="col ps-md-2 pt-2">
+        <main class="col ps-md-2 p-4">
           <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="border rounded-3 p-1 text-decoration-none"><i class="bi bi-list bi-lg py-2 p-1"></i> Menu</a>
 
           <div class="py-1">
@@ -111,39 +111,45 @@
             </div>
           </div>
 
-          <div class="row p-3">
+          <div class="row">
+            <div>
               <table class="table table-sm">
                 <tbody>
-                <tr>
-                  <td>
-                    <div class="text-center bg-info rounded-2">
-                      <div>
-                        <span class="fs-4">CALL Price</span>
+                  <tr>
+                    <td>
+                      <div class="text-center bg-info rounded-2">
+                        <div>
+                          <span class="fs-4">CALL Price</span>
+                        </div>
+                        <div>
+                          <span id="callPrice" class="fs-2 fw-bold"></span>
+                        </div>
                       </div>
-                      <div>
-                        <span id="callPrice" class="fs-2 fw-bold"></span>
+                    </td>
+                    <td>
+                      <div class="text-center bg-danger rounded-2">
+                        <div>
+                          <span class="fs-4">PUT Price</span>
+                        </div>
+                        <div>
+                          <span id="putPrice" class="fs-2 fw-bold"></span>
+                        </div>
                       </div>
-                    </div>
-                  </td>
-                  <td>
-                    <div class="text-center bg-danger rounded-2">
-                      <div>
-                        <span class="fs-4">PUT Price</span>
-                      </div>
-                      <div>
-                        <span id="putPrice" class="fs-2 fw-bold"></span>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
+            </div>
           </div>
 
           <hr class="bg-danger border-2 border-top border-danger" />
 
-          <div id="extendedCalculations">
-            <span class="badge bg-primary mb-2">Extended Calculations</span>
+          <div id="extendedCalculations" class="row">
+            <div>
+              <span class="badge bg-primary mb-2">Extended Calculations</span>
+            </div>
+            <div class="d-flex flex-row">
+            </div>
           </div>
 
         </main>
