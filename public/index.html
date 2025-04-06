@@ -21,19 +21,12 @@
     <main>
       <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title d-none d-sm-block" id="offcanvas"><b>Black-Scholes Parameters</b></h5>
+          <h5 class="offcanvas-title d-none d-sm-block" id="offcanvas"><b>Black-Scholes Model</b></h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
+          <span class="badge bg-primary mb-2">Simple Calculations</span>
           <div class="mb-3">
-<!--
-            <label for="minS0" class="form-label">Asset Price Range</label>
-            <div class="d-flex justify-content-center">
-             <input type="number" id="minS0" class="form-control" value="100.0" min="0.1" max="1000000.0" step="0.1"/>
-             <span class="mx-2 d-flex align-items-center">-</span>
-             <input type="number" id="maxS0" class="form-control" value="100.0" min="0.1" max="1000000.0" step="0.1"/>
-            </div>
--->
             <label for="S0" class="form-label">Current Asset Price</label>
             <input type="number" id="S0" class="form-control" value="100.0" min="0.1" max="1000000.0" step="0.1"/>
           </div>
@@ -42,7 +35,7 @@
             <input type="number" id="strike" class="form-control" value="100.0" min="0.1" max="1000000.0" step="0.1"/>
           </div>
           <div class="mb-3">
-            <label for="year" class="form-label">Expiration in Years</label>
+            <label for="year" class="form-label">Expiration, Years</label>
             <input type="number" id="year" class="form-control" value="1" min="0" max="10" step="1"/>
           </div>
           <div class="mb-3">
@@ -52,6 +45,24 @@
           <div class="mb-3">
             <label for="interest-rate" class="form-label">Risk-Free Interest Rate, %</label>
             <input type="number" id="interest-rate" class="form-control" value="3" min="-5" max="20" step="1"/>
+          </div>
+          <hr class="bg-danger border-2 border-top border-danger" />
+          <span class="badge bg-primary mb-2">Extended Calculations</span>
+          <div class="mb-3">
+            <label for="minS0" class="form-label">Asset Price Range</label>
+            <div class="d-flex justify-content-center">
+             <input type="number" id="minS0" class="form-control" value="100.0" min="0.1" max="1000000.0" step="0.1"/>
+             <span class="mx-2 d-flex align-items-center">-</span>
+             <input type="number" id="maxS0" class="form-control" value="100.0" min="0.1" max="1000000.0" step="0.1"/>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="minVolatility" class="form-label">Volatility Range</label>
+            <div class="d-flex justify-content-center">
+             <input type="number" id="minVolatility" class="form-control" value="5" min="5" max="300" step="1"/>
+             <span class="mx-2 d-flex align-items-center">-</span>
+             <input type="number" id="maxVolatility" class="form-control" value="20" min="5" max="300" step="1"/>
+            </div>
           </div>
         </div> <!-- offcanvas-body -->
       </div>
@@ -68,5 +79,6 @@
       </div>
     </main>
     <script type="module" src="analytics.js"></script>
+    <script type="module" src="black-scholes.js"></script>
   </body>
 </html>
