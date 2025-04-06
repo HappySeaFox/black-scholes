@@ -16,94 +16,100 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
   <body>
-    <header>
-    </header>
-    <main>
-      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title d-none d-sm-block" id="offcanvas"><b>Black-Scholes Model</b></h5>
-          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <div id="simpleCalculations">
-            <span class="badge bg-primary mb-2">Simple Calculations</span>
-            <div class="mb-3">
-              <label for="current-price" class="form-label">Current Asset Price</label>
-              <input type="number" id="currentPrice" class="form-control" value="100.00" min="0.01" max="1000000.00" step="0.1"/>
+    <div class="container-fluid">
+      <div class="row flex-nowrap">
+        <div class="col-auto px-0">
+          <div id="sidebar" class="collapse collapse-horizontal border-end show">
+            <div class="sidebar-header border-bottom">
+              <div class="sidebar-brand">Black-Scholes Model</div>
             </div>
-            <div class="mb-3">
-              <label for="strike-price" class="form-label">Strike Price</label>
-              <input type="number" id="strikePrice" class="form-control" value="100.00" min="0.01" max="1000000.00" step="0.1"/>
+            <div id="sidebar-nav" class="mx-2">
+              <div id="simpleCalculations">
+                <span class="badge bg-primary mb-2">Simple Calculations</span>
+                <div class="mb-3">
+                  <label for="current-price" class="form-label">Current Asset Price</label>
+                  <input type="number" id="currentPrice" class="form-control" value="100.00" min="0.01" max="1000000.00" step="0.1"/>
+                </div>
+                <div class="mb-3">
+                  <label for="strike-price" class="form-label">Strike Price</label>
+                  <input type="number" id="strikePrice" class="form-control" value="100.00" min="0.01" max="1000000.00" step="0.1"/>
+                </div>
+                <div class="mb-3">
+                  <label for="expiration" class="form-label">Expiration, Years</label>
+                  <input type="number" id="expiration" class="form-control" value="1" min="1" max="10" step="1"/>
+                </div>
+                <div class="mb-3">
+                  <label for="volatility" class="form-label">Volatility, %</label>
+                  <input type="number" id="volatility" class="form-control" value="5" min="5" max="300" step="1"/>
+                </div>
+                <div class="mb-3">
+                  <label for="interest-rate" class="form-label">Risk-Free Interest Rate, %</label>
+                  <input type="number" id="interestRate" class="form-control" value="3" min="-5" max="20" step="1"/>
+                </div>
+              </div>
+              <div id="extendedCalculations">
+                <hr class="bg-danger border-2 border-top border-danger" />
+                <span class="badge bg-primary mb-2">Extended Calculations</span>
+                <div class="mb-3">
+                  <label for="minPrice" class="form-label">Asset Price Range</label>
+                  <div class="d-flex justify-content-center">
+                    <input type="number" id="minPrice" class="form-control" value="100.00" min="0.01" max="1000000.00" step="0.1"/>
+                    <span class="mx-2 d-flex align-items-center">-</span>
+                    <input type="number" id="maxPrice" class="form-control" value="100.00" min="0.01" max="1000000.00" step="0.1"/>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="minVolatility" class="form-label">Volatility Range, %</label>
+                  <div class="d-flex justify-content-center">
+                    <input type="number" id="minVolatility" class="form-control" value="5" min="5" max="300" step="1"/>
+                    <span class="mx-2 d-flex align-items-center">-</span>
+                    <input type="number" id="maxVolatility" class="form-control" value="20" min="5" max="300" step="1"/>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="mb-3">
-              <label for="expiration" class="form-label">Expiration, Years</label>
-              <input type="number" id="expiration" class="form-control" value="1" min="1" max="10" step="1"/>
-            </div>
-            <div class="mb-3">
-              <label for="volatility" class="form-label">Volatility, %</label>
-              <input type="number" id="volatility" class="form-control" value="5" min="5" max="300" step="1"/>
-            </div>
-            <div class="mb-3">
-              <label for="interest-rate" class="form-label">Risk-Free Interest Rate, %</label>
-              <input type="number" id="interestRate" class="form-control" value="3" min="-5" max="20" step="1"/>
-            </div>
-          </div>
-          <hr class="bg-danger border-2 border-top border-danger" />
-          <span class="badge bg-primary mb-2">Extended Calculations</span>
-          <div class="mb-3">
-            <label for="minPrice" class="form-label">Asset Price Range</label>
-            <div class="d-flex justify-content-center">
-             <input type="number" id="minPrice" class="form-control" value="100.0" min="0.1" max="1000000.0" step="0.1"/>
-             <span class="mx-2 d-flex align-items-center">-</span>
-             <input type="number" id="maxPrice" class="form-control" value="100.0" min="0.1" max="1000000.0" step="0.1"/>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="minVolatility" class="form-label">Volatility Range</label>
-            <div class="d-flex justify-content-center">
-             <input type="number" id="minVolatility" class="form-control" value="5" min="5" max="300" step="1"/>
-             <span class="mx-2 d-flex align-items-center">-</span>
-             <input type="number" id="maxVolatility" class="form-control" value="20" min="5" max="300" step="1"/>
-            </div>
-          </div>
-        </div> <!-- offcanvas-body -->
-      </div>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col py-3">
-           <!-- Sidebar toggle button -->
-            <button class="btn float-begin btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
-              Options
-            </button>
-            <center><h2><b>Black-Scholes Options Pricing Model</b></h2></center>
-            <table class="table table-sm table-bordered">
-              <thead>
-                <tr>
-                  <th scope="col">Current Price</th>
-                  <th scope="col">Strike Price</th>
-                  <th scope="col">Expiration</th>
-                  <th scope="col">Interest Rate</th>
-                  <th scope="col">Volatility</th>
-                  <th scope="col">Call Price</th>
-                  <th scope="col">Put Price</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><span id="currentPriceSimpleDisplay"></span></td>
-                  <td><span id="strikePriceSimpleDisplay"></span></td>
-                  <td><span id="expirationSimpleDisplay"></span></td>
-                  <td><span id="interestRateSimpleDisplay"></span></td>
-                  <td><span id="volatilitySimpleDisplay"></span></td>
-                  <td><span id="callPriceSimpleDisplay"></span></td>
-                  <td><span id="putPriceSimpleDisplay"></span></td>
-                </tr>
-              </tbody>
-            </table>
           </div>
         </div>
+
+        <main class="col ps-md-2 pt-2">
+          <a href="#" data-bs-target="#sidebar" data-bs-toggle="collapse" class="border rounded-3 p-1 text-decoration-none"><i class="bi bi-list bi-lg py-2 p-1"></i> Menu</a>
+          <div class="page-header pt-3">
+            <h2>Black-Scholes Options Pricing Model</h2>
+          </div>
+          <p class="lead">Black-Scholes Options Pricing Model.</p>
+          <hr>
+          <div class="row">
+            <div class="col-12">
+          <table class="table table-sm table-bordered">
+            <thead>
+            <tr>
+              <th scope="col">Current Price</th>
+              <th scope="col">Strike Price</th>
+              <th scope="col">Expiration</th>
+              <th scope="col">Interest Rate</th>
+              <th scope="col">Volatility</th>
+              <th scope="col">Call Price</th>
+              <th scope="col">Put Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td><span id="currentPriceSimpleDisplay"></span></td>
+              <td><span id="strikePriceSimpleDisplay"></span></td>
+              <td><span id="expirationSimpleDisplay"></span></td>
+              <td><span id="interestRateSimpleDisplay"></span></td>
+              <td><span id="volatilitySimpleDisplay"></span></td>
+              <td><span id="callPriceSimpleDisplay"></span></td>
+              <td><span id="putPriceSimpleDisplay"></span></td>
+            </tr>
+            </tbody>
+          </table>
+            </div>
+          </div>
+        </main>
       </div>
-    </main>
+    </div>
+
     <script type="module" src="analytics.js"></script>
     <script type="module" src="black-scholes.js"></script>
   </body>
