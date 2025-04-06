@@ -157,10 +157,16 @@
       anychart.onDocumentReady(function() {
         let chart = anychart.heatMap(getData());
 
+        // Basic setup
         chart.title("Fatal Car Crashes in U.S. in 2021 by Time of Day and Day of Week");
         chart.container("container");
         chart.tooltip(false);
         chart.interactivity().selectionMode("none");
+
+        // Custom color scale
+        let customColorScale = anychart.scales.linearColor();
+        customColorScale.colors(["#00ccff", "#ffcc00"]);
+        chart.colorScale(customColorScale);
 
         // Simulate disabled hover events
         chart.stroke("white", 1);
@@ -396,6 +402,36 @@
       </div>
     </div>
 
+<!--
+              <table id="extendedCallTable" class="table table-sm table-bordered" style="min-width: 20rem; max-width: 20rem; min-height: 20rem; max-height: 20rem;">
+                <tbody>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                </tbody>
+              </table>
+              <table id="extendedPutTable" class="table table-sm table-bordered" style="min-width: 20rem; max-width: 20rem; min-height: 20rem; max-height: 20rem;">
+                <tbody>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                </tbody>
+              </table>
+-->
     <script type="module" src="analytics.js"></script>
     <script type="module" src="black-scholes.js"></script>
   </body>
