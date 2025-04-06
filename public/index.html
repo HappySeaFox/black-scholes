@@ -7,7 +7,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-core.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-heatmap.min.js" crossorigin="anonymous"></script>
 
     <link href="black-scholes.css" rel="stylesheet" crossorigin="anonymous">
 
@@ -149,6 +152,243 @@
               <span class="badge bg-primary mb-2">Extended Calculations</span>
             </div>
             <div class="d-flex flex-row">
+    <div id="container" style="width: 30rem; height: 30rem;"></div>
+    <script>
+      anychart.onDocumentReady(function() {
+        let chart = anychart.heatMap(getData());
+
+        chart.title("Fatal Car Crashes in U.S. in 2021 by Time of Day and Day of Week");
+        chart.container("container");
+        chart.tooltip(false);
+        chart.interactivity().selectionMode("none");
+
+        // Simulate disabled hover events
+        chart.stroke("white", 1);
+        chart.hovered().stroke("white", 1);
+        chart.hovered().fill(function() { return this.sourceColor; });
+        chart.labels().fontColor("black");
+
+        chart.draw();
+
+        // Disable AnyChart Trial message
+        $("div.anychart-credits").remove();
+      });
+      // add the data
+      function getData() {
+        return [
+          {
+            x: "Monday",
+            y: "Midnight–3:59 a.m.",
+            heat: 705
+          },
+          {
+            x: "Monday",
+            y: "4:00–7:59 a.m.",
+            heat: 713
+          },
+          {
+            x: "Monday",
+            y: "8:00–11:59 a.m.",
+            heat: 657
+          },
+          {
+            x: "Monday",
+            y: "Noon–3:59 p.m.",
+            heat: 957
+          },
+          {
+            x: "Monday",
+            y: "4:00–7:59 p.m.",
+            heat: 1137
+          },
+          {
+            x: "Monday",
+            y: "8:00–11:59 p.m.",
+            heat: 956
+          },
+          {
+            x: "Tuesday",
+            y: "Midnight–3:59 a.m.",
+            heat: 482
+          },
+          {
+            x: "Tuesday",
+            y: "4:00–7:59 a.m.",
+            heat: 641
+          },
+          {
+            x: "Tuesday",
+            y: "8:00–11:59 a.m.",
+            heat: 631
+          },
+          {
+            x: "Tuesday",
+            y: "Noon–3:59 p.m.",
+            heat: 905
+          },
+          {
+            x: "Tuesday",
+            y: "4:00–7:59 p.m.",
+            heat: 1137
+          },
+          {
+            x: "Tuesday",
+            y: "8:00–11:59 p.m.",
+            heat: 986
+          },
+          {
+            x: "Wednesday",
+            y: "Midnight–3:59 a.m.",
+            heat: 465
+          },
+          {
+            x: "Wednesday",
+            y: "4:00–7:59 a.m.",
+            heat: 616
+          },
+          {
+            x: "Wednesday",
+            y: "8:00–11:59 a.m.",
+            heat: 627
+          },
+          {
+            x: "Wednesday",
+            y: "Noon–3:59 p.m.",
+            heat: 914
+          },
+          {
+            x: "Wednesday",
+            y: "4:00–7:59 p.m.",
+            heat: 1159
+          },
+          {
+            x: "Wednesday",
+            y: "8:00–11:59 p.m.",
+            heat: 1066
+          },
+          {
+            x: "Thursday",
+            y: "Midnight–3:59 a.m.",
+            heat: 584
+          },
+          {
+            x: "Thursday",
+            y: "4:00–7:59 a.m.",
+            heat: 718
+          },
+          {
+            x: "Thursday",
+            y: "8:00–11:59 a.m.",
+            heat: 660
+          },
+          {
+            x: "Thursday",
+            y: "Noon–3:59 p.m.",
+            heat: 966
+          },
+          {
+            x: "Thursday",
+            y: "4:00–7:59 p.m.",
+            heat: 1161
+          },
+          {
+            x: "Thursday",
+            y: "8:00–11:59 p.m.",
+            heat: 1186
+          },
+          {
+            x: "Friday",
+            y: "Midnight–3:59 a.m.",
+            heat: 715
+          },
+          {
+            x: "Friday",
+            y: "4:00–7:59 a.m.",
+            heat: 747
+          },
+          {
+            x: "Friday",
+            y: "8:00–11:59 a.m.",
+            heat: 738
+          },
+          {
+            x: "Friday",
+            y: "Noon–3:59 p.m.",
+            heat: 1056
+          },
+          {
+            x: "Friday",
+            y: "4:00–7:59 p.m.",
+            heat: 1426
+          },
+          {
+            x: "Friday",
+            y: "8:00–11:59 p.m.",
+            heat: 1631
+          },
+          {
+            x: "Saturday",
+            y: "Midnight–3:59 a.m.",
+            heat: 1383
+          },
+          {
+            x: "Saturday",
+            y: "4:00–7:59 a.m.",
+            heat: 641
+          },
+          {
+            x: "Saturday",
+            y: "8:00–11:59 a.m.",
+            heat: 635
+          },
+          {
+            x: "Saturday",
+            y: "Noon–3:59 p.m.",
+            heat: 1034
+          },
+          {
+            x: "Saturday",
+            y: "4:00–7:59 p.m.",
+            heat: 1400
+          },
+          {
+            x: "Saturday",
+            y: "8:00–11:59 p.m.",
+            heat: 1593
+          },
+          {
+            x: "Sunday",
+            y: "Midnight–3:59 a.m.",
+            heat: 1486
+          },
+          {
+            x: "Sunday",
+            y: "4:00–7:59 a.m.",
+            heat: 695
+          },
+          {
+            x: "Sunday",
+            y: "8:00–11:59 a.m.",
+            heat: 564
+          },
+          {
+            x: "Sunday",
+            y: "Noon–3:59 p.m.",
+            heat: 932
+          },
+          {
+            x: "Sunday",
+            y: "4:00–7:59 p.m.",
+            heat: 1292
+          },
+          {
+            x: "Sunday",
+            y: "8:00–11:59 p.m.",
+            heat: 1211
+          }
+        ];
+      }
+    </script>
             </div>
           </div>
 
