@@ -56,7 +56,7 @@ function normalCDF(x) {
 
 // Black–Scholes formula for European options.
 //
-// Returns an object with two calculated prices, callPrice and putPrice.
+// Returns an object with two calculated prices, call price and put price.
 //
 function blackScholesPrices(currentPrice, strikePrice, expiration, interestRate, volatility) {
 
@@ -87,12 +87,6 @@ function simpleCalculationsAndUpdateUi() {
                                         $("#interestRate").val(),
                                         $("#volatility").val());
 
-    $("#currentPriceSimpleDisplay").text($("#currentPrice").val());
-    $("#strikePriceSimpleDisplay").text($("#strikePrice").val());
-    const expiration = $("#expiration").val();
-    $("#expirationSimpleDisplay").text(expiration + " " + (expiration === "1" ? "year" : "years"));
-    $("#interestRateSimpleDisplay").text($("#interestRate").val() + "%");
-    $("#volatilitySimpleDisplay").text($("#volatility").val() + "%");
-    $("#callPriceSimpleDisplay").text(prices.callPrice.toFixed(2));
-    $("#putPriceSimpleDisplay").text(prices.putPrice.toFixed(2));
+    $("#callPrice").text(prices.callPrice.toFixed(2));
+    $("#putPrice").text(prices.putPrice.toFixed(2));
 }
