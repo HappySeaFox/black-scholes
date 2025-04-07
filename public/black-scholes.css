@@ -27,3 +27,7 @@ div.input-group .form-check-input:focus {
   transition: none !important;
 }
 */
+
+#singleCalculationDisplayTable.table-sm > :not(caption) > * > * {
+	padding: .2rem .1rem .2rem .2rem;
+}
