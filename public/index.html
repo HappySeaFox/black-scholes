@@ -26,416 +26,410 @@
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-              <div id="simpleCalculations">
-                <span class="badge bg-primary mb-2">Simple Calculations</span>
-                <div class="mb-3">
-                  <label for="currentPrice" class="form-label">Current Asset Price</label>
-                  <input type="number" id="currentPrice" class="form-control" value="100.00" min="0.01" max="1000.00" step="0.1">
-                </div>
-                <div class="mb-3">
-                  <label for="strikePrice" class="form-label">Strike Price</label>
-                  <input type="number" id="strikePrice" class="form-control" value="100.00" min="0.01" max="1000.00" step="0.1">
-                </div>
-                <div class="mb-3">
-                  <label for="expiration" class="form-label">Expiration, Years</label>
-                  <input type="number" id="expiration" class="form-control" value="1" min="1" max="10" step="1">
-                </div>
-                <div class="mb-3">
-                  <label for="volatility" class="form-label">Volatility, %</label>
-                  <input type="number" id="volatility" class="form-control" value="5" min="5" max="100" step="1">
-                </div>
-                <div class="mb-3">
-                  <label for="interestRate" class="form-label">Risk-Free Interest Rate, %</label>
-                  <input type="number" id="interestRate" class="form-control" value="3" min="-5" max="20" step="1">
-                </div>
-              </div>
-              <div id="extendedCalculations">
-                <hr class="bg-danger border-2 border-top border-danger">
-                <span class="badge bg-primary mb-2">Extended Calculations</span>
-                <div class="mb-3">
-                  <label for="minPrice" class="form-label">Asset Price Range</label>
-                  <div class="d-flex justify-content-center">
-                    <input type="number" id="minPrice" class="form-control" value="100.00" min="0.01" max="1000.00" step="0.1">
-                    <span class="mx-2 d-flex align-items-center">-</span>
-                    <input type="number" id="maxPrice" class="form-control" value="100.00" min="0.01" max="1000.00" step="0.1">
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="minVolatility" class="form-label">Volatility Range, %</label>
-                  <div class="d-flex justify-content-center">
-                    <input type="number" id="minVolatility" class="form-control" value="5" min="5" max="100" step="1">
-                    <span class="mx-2 d-flex align-items-center">-</span>
-                    <input type="number" id="maxVolatility" class="form-control" value="20" min="5" max="100" step="1">
-                  </div>
-                </div>
+          <div id="simpleCalculations">
+            <span class="badge bg-primary mb-2">Simple Calculations</span>
+            <div class="mb-3">
+              <label for="currentPrice" class="form-label">Current Asset Price</label>
+              <input type="number" id="currentPrice" class="form-control" value="100.00" min="0.01" max="1000.00" step="0.1">
+            </div>
+            <div class="mb-3">
+              <label for="strikePrice" class="form-label">Strike Price</label>
+              <input type="number" id="strikePrice" class="form-control" value="100.00" min="0.01" max="1000.00" step="0.1">
+            </div>
+            <div class="mb-3">
+              <label for="expiration" class="form-label">Expiration, Years</label>
+              <input type="number" id="expiration" class="form-control" value="1" min="1" max="10" step="1">
+            </div>
+            <div class="mb-3">
+              <label for="volatility" class="form-label">Volatility, %</label>
+              <input type="number" id="volatility" class="form-control" value="5" min="5" max="100" step="1">
+            </div>
+            <div class="mb-3">
+              <label for="interestRate" class="form-label">Risk-Free Interest Rate, %</label>
+              <input type="number" id="interestRate" class="form-control" value="3" min="-5" max="20" step="1">
+            </div>
+          </div>
+          <div id="extendedCalculations">
+            <hr class="bg-danger border-2 border-top border-danger">
+            <span class="badge bg-primary mb-2">Extended Calculations</span>
+            <div class="mb-3">
+              <label for="minPrice" class="form-label">Asset Price Range</label>
+              <div class="d-flex justify-content-center">
+                <input type="number" id="minPrice" class="form-control" value="100.00" min="0.01" max="1000.00" step="0.1">
+                <span class="mx-2 d-flex align-items-center">-</span>
+                <input type="number" id="maxPrice" class="form-control" value="100.00" min="0.01" max="1000.00" step="0.1">
               </div>
             </div>
-        </div> <!-- offcanvas-body -->
-
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col py-3">
-           <!-- Sidebar toggle button -->
-            <button class="btn float-begin btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
-              Options
-            </button>
-
-          <div class="py-1 text-center">
-            <h2><b>Black-Scholes Pricing Model</b></h2>
-          </div>
-
-          <div class="text-bg-info border border-1 rounded-2 border-primary p-1 my-2">
-            The Black-Scholes model is a mathematical formula used to estimate the fair price
-            of European-style options. It helps traders understand how much an option should
-            cost based on factors like time, volatility, and interest rates. Think of it as a tool
-            that brings logic and consistency to pricing bets on future market movements.
-          </div>
-
-          <div class="row">
-            <div class="col-12">
-              <span class="badge bg-primary mb-2">Simple Calculations</span>
-              <table class="table table-sm table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col" class="align-baseline">Current Price</th>
-                    <th scope="col" class="align-baseline">Strike Price</th>
-                    <th scope="col" class="align-baseline">Expiration</th>
-                    <th scope="col" class="align-baseline">Interest Rate</th>
-                    <th scope="col" class="align-baseline">Volatility</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span id="currentPriceSimpleDisplay"></span></td>
-                    <td><span id="strikePriceSimpleDisplay"></span></td>
-                    <td><span id="expirationSimpleDisplay"></span></td>
-                    <td><span id="interestRateSimpleDisplay"></span></td>
-                    <td><span id="volatilitySimpleDisplay"></span></td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="mb-3">
+              <label for="minVolatility" class="form-label">Volatility Range, %</label>
+              <div class="d-flex justify-content-center">
+                <input type="number" id="minVolatility" class="form-control" value="5" min="5" max="100" step="1">
+                <span class="mx-2 d-flex align-items-center">-</span>
+                <input type="number" id="maxVolatility" class="form-control" value="20" min="5" max="100" step="1">
+              </div>
             </div>
-          </div>
-
-          <div class="row">
-            <div>
-              <table class="table table-sm" style="table-layout: fixed">
-                <tbody>
-                  <tr>
-                    <td style="width: 50%">
-                      <div class="text-center bg-info rounded-2">
-                        <div>
-                          <span class="fs-4">CALL Price</span>
-                        </div>
-                        <div>
-                          <span id="callPrice" class="fs-2 fw-bold"></span>
-                        </div>
-                      </div>
-                    </td>
-                    <td style="width: 50%">
-                      <div class="text-center bg-danger rounded-2">
-                        <div>
-                          <span class="fs-4">PUT Price</span>
-                        </div>
-                        <div>
-                          <span id="putPrice" class="fs-2 fw-bold"></span>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <hr class="bg-danger border-2 border-top border-danger">
-
-          <div class="row">
-            <div>
-              <span class="badge bg-primary mb-2">Extended Calculations</span>
-            </div>
-            <div class="d-flex flex-row">
-    <div id="heatMapContainer" style="width: 30rem; height: 30rem;"></div>
-    <script>
-      anychart.onDocumentReady(function() {
-        let chart = anychart.heatMap(getData());
-
-        // Basic setup
-        chart.title("Fatal Car Crashes in U.S. in 2021 by Time of Day and Day of Week");
-        chart.container("heatMapContainer");
-        chart.tooltip(false);
-        chart.interactivity().selectionMode("none");
-
-        // Custom color scale
-        let customColorScale = anychart.scales.linearColor();
-        customColorScale.colors(["#00ccff", "#ffcc00"]);
-        chart.colorScale(customColorScale);
-
-        // Simulate disabled hover events
-        chart.stroke("white", 1);
-        chart.hovered().stroke("white", 1);
-        chart.hovered().fill(function() { return this.sourceColor; });
-        chart.labels().fontColor("black");
-
-        chart.draw();
-
-        // Disable AnyChart Trial message
-        $("div.anychart-credits").remove();
-      });
-      // add the data
-      function getData() {
-        return [
-          {
-            x: "Monday",
-            y: "Midnight–3:59 a.m.",
-            heat: 705
-          },
-          {
-            x: "Monday",
-            y: "4:00–7:59 a.m.",
-            heat: 713
-          },
-          {
-            x: "Monday",
-            y: "8:00–11:59 a.m.",
-            heat: 657
-          },
-          {
-            x: "Monday",
-            y: "Noon–3:59 p.m.",
-            heat: 957
-          },
-          {
-            x: "Monday",
-            y: "4:00–7:59 p.m.",
-            heat: 1137
-          },
-          {
-            x: "Monday",
-            y: "8:00–11:59 p.m.",
-            heat: 956
-          },
-          {
-            x: "Tuesday",
-            y: "Midnight–3:59 a.m.",
-            heat: 482
-          },
-          {
-            x: "Tuesday",
-            y: "4:00–7:59 a.m.",
-            heat: 641
-          },
-          {
-            x: "Tuesday",
-            y: "8:00–11:59 a.m.",
-            heat: 631
-          },
-          {
-            x: "Tuesday",
-            y: "Noon–3:59 p.m.",
-            heat: 905
-          },
-          {
-            x: "Tuesday",
-            y: "4:00–7:59 p.m.",
-            heat: 1137
-          },
-          {
-            x: "Tuesday",
-            y: "8:00–11:59 p.m.",
-            heat: 986
-          },
-          {
-            x: "Wednesday",
-            y: "Midnight–3:59 a.m.",
-            heat: 465
-          },
-          {
-            x: "Wednesday",
-            y: "4:00–7:59 a.m.",
-            heat: 616
-          },
-          {
-            x: "Wednesday",
-            y: "8:00–11:59 a.m.",
-            heat: 627
-          },
-          {
-            x: "Wednesday",
-            y: "Noon–3:59 p.m.",
-            heat: 914
-          },
-          {
-            x: "Wednesday",
-            y: "4:00–7:59 p.m.",
-            heat: 1159
-          },
-          {
-            x: "Wednesday",
-            y: "8:00–11:59 p.m.",
-            heat: 1066
-          },
-          {
-            x: "Thursday",
-            y: "Midnight–3:59 a.m.",
-            heat: 584
-          },
-          {
-            x: "Thursday",
-            y: "4:00–7:59 a.m.",
-            heat: 718
-          },
-          {
-            x: "Thursday",
-            y: "8:00–11:59 a.m.",
-            heat: 660
-          },
-          {
-            x: "Thursday",
-            y: "Noon–3:59 p.m.",
-            heat: 966
-          },
-          {
-            x: "Thursday",
-            y: "4:00–7:59 p.m.",
-            heat: 1161
-          },
-          {
-            x: "Thursday",
-            y: "8:00–11:59 p.m.",
-            heat: 1186
-          },
-          {
-            x: "Friday",
-            y: "Midnight–3:59 a.m.",
-            heat: 715
-          },
-          {
-            x: "Friday",
-            y: "4:00–7:59 a.m.",
-            heat: 747
-          },
-          {
-            x: "Friday",
-            y: "8:00–11:59 a.m.",
-            heat: 738
-          },
-          {
-            x: "Friday",
-            y: "Noon–3:59 p.m.",
-            heat: 1056
-          },
-          {
-            x: "Friday",
-            y: "4:00–7:59 p.m.",
-            heat: 1426
-          },
-          {
-            x: "Friday",
-            y: "8:00–11:59 p.m.",
-            heat: 1631
-          },
-          {
-            x: "Saturday",
-            y: "Midnight–3:59 a.m.",
-            heat: 1383
-          },
-          {
-            x: "Saturday",
-            y: "4:00–7:59 a.m.",
-            heat: 641
-          },
-          {
-            x: "Saturday",
-            y: "8:00–11:59 a.m.",
-            heat: 635
-          },
-          {
-            x: "Saturday",
-            y: "Noon–3:59 p.m.",
-            heat: 1034
-          },
-          {
-            x: "Saturday",
-            y: "4:00–7:59 p.m.",
-            heat: 1400
-          },
-          {
-            x: "Saturday",
-            y: "8:00–11:59 p.m.",
-            heat: 1593
-          },
-          {
-            x: "Sunday",
-            y: "Midnight–3:59 a.m.",
-            heat: 1486
-          },
-          {
-            x: "Sunday",
-            y: "4:00–7:59 a.m.",
-            heat: 695
-          },
-          {
-            x: "Sunday",
-            y: "8:00–11:59 a.m.",
-            heat: 564
-          },
-          {
-            x: "Sunday",
-            y: "Noon–3:59 p.m.",
-            heat: 932
-          },
-          {
-            x: "Sunday",
-            y: "4:00–7:59 p.m.",
-            heat: 1292
-          },
-          {
-            x: "Sunday",
-            y: "8:00–11:59 p.m.",
-            heat: 1211
-          }
-        ];
-      }
-    </script>
-            </div>
-          </div>
-
           </div>
         </div>
       </div>
-    </main>
+      <!-- offcanvas-body -->
+      <div class="container-fluid container border rounded-3 shadow-lg mt-3">
+        <div class="row px-4 px-md-5 pt-3">
+          <!-- Sidebar toggle button -->
+          <div class="col">
+            <button class="btn float-begin btn-primary" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
+            Options
+            </button>
+            <a class="float-end" href="https://github.com">GitHub</a>
+          </div>
+        </div>
+        <div class="row px-4 px-md-5">
+          <div class="row py-1 text-center">
+            <h2 class="fw-bold lh-1">Black-Scholes Pricing Model</h2>
+          </div>
+        </div>
+          <div class="row px-4 px-md-5 py-3">
+            <span class="text-bg-info border border-1 border-primary rounded-2 p-1 my-2">
+            The Black-Scholes model is a mathematical formula used to estimate the fair price
+            of European-style options. It helps traders understand how much an option should
+            cost based on factors like time, volatility, and interest rates. Think of it as a tool
+            that brings logic and consistency to pricing bets on future market movements.</span>
+          </div>
+        <div class="row px-4 px-md-5 pb-4 pb-md-5 border-top">
+          <div class="col-12">
+            <span class="badge bg-primary mb-2">Simple Calculations</span>
+            <table class="table table-sm table-bordered">
+              <thead>
+                <tr>
+                  <th scope="col" class="align-baseline">Current Price</th>
+                  <th scope="col" class="align-baseline">Strike Price</th>
+                  <th scope="col" class="align-baseline">Expiration</th>
+                  <th scope="col" class="align-baseline">Interest Rate</th>
+                  <th scope="col" class="align-baseline">Volatility</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span id="currentPriceSimpleDisplay"></span></td>
+                  <td><span id="strikePriceSimpleDisplay"></span></td>
+                  <td><span id="expirationSimpleDisplay"></span></td>
+                  <td><span id="interestRateSimpleDisplay"></span></td>
+                  <td><span id="volatilitySimpleDisplay"></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <table class="table table-sm" style="table-layout: fixed">
+              <tbody>
+                <tr>
+                  <td style="width: 50%">
+                    <div class="text-center bg-info rounded-2">
+                      <div>
+                        <span class="fs-4">CALL Price</span>
+                      </div>
+                      <div>
+                        <span id="callPrice" class="fs-2 fw-bold"></span>
+                      </div>
+                    </div>
+                  </td>
+                  <td style="width: 50%">
+                    <div class="text-center bg-danger rounded-2">
+                      <div>
+                        <span class="fs-4">PUT Price</span>
+                      </div>
+                      <div>
+                        <span id="putPrice" class="fs-2 fw-bold"></span>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="row px-4 px-md-5 pb-4 pb-md-5 border-top">
+          <div>
+            <span class="badge bg-primary mb-2">Extended Calculations</span>
+          </div>
+          <div class="d-flex flex-row">
+            <div id="heatMapContainer" style="width: 30rem; height: 30rem;"></div>
+            <script>
+              anychart.onDocumentReady(function() {
+                let chart = anychart.heatMap(getData());
 
-<!--
-              <table id="extendedCallTable" class="table table-sm table-bordered" style="min-width: 20rem; max-width: 20rem; min-height: 20rem; max-height: 20rem;">
-                <tbody>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                </tbody>
-              </table>
-              <table id="extendedPutTable" class="table table-sm table-bordered" style="min-width: 20rem; max-width: 20rem; min-height: 20rem; max-height: 20rem;">
-                <tbody>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                  <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                </tbody>
-              </table>
--->
+                // Basic setup
+                chart.title("Fatal Car Crashes in U.S. in 2021 by Time of Day and Day of Week");
+                chart.container("heatMapContainer");
+                chart.tooltip(false);
+                chart.interactivity().selectionMode("none");
+
+                // Custom color scale
+                let customColorScale = anychart.scales.linearColor();
+                customColorScale.colors(["#00ccff", "#ffcc00"]);
+                chart.colorScale(customColorScale);
+
+                // Simulate disabled hover events
+                chart.stroke("white", 1);
+                chart.hovered().stroke("white", 1);
+                chart.hovered().fill(function() { return this.sourceColor; });
+                chart.labels().fontColor("black");
+
+                chart.draw();
+
+                // Disable AnyChart Trial message
+                $("div.anychart-credits").remove();
+              });
+              // add the data
+              function getData() {
+                return [
+                  {
+                    x: "Monday",
+                    y: "Midnight–3:59 a.m.",
+                    heat: 705
+                  },
+                  {
+                    x: "Monday",
+                    y: "4:00–7:59 a.m.",
+                    heat: 713
+                  },
+                  {
+                    x: "Monday",
+                    y: "8:00–11:59 a.m.",
+                    heat: 657
+                  },
+                  {
+                    x: "Monday",
+                    y: "Noon–3:59 p.m.",
+                    heat: 957
+                  },
+                  {
+                    x: "Monday",
+                    y: "4:00–7:59 p.m.",
+                    heat: 1137
+                  },
+                  {
+                    x: "Monday",
+                    y: "8:00–11:59 p.m.",
+                    heat: 956
+                  },
+                  {
+                    x: "Tuesday",
+                    y: "Midnight–3:59 a.m.",
+                    heat: 482
+                  },
+                  {
+                    x: "Tuesday",
+                    y: "4:00–7:59 a.m.",
+                    heat: 641
+                  },
+                  {
+                    x: "Tuesday",
+                    y: "8:00–11:59 a.m.",
+                    heat: 631
+                  },
+                  {
+                    x: "Tuesday",
+                    y: "Noon–3:59 p.m.",
+                    heat: 905
+                  },
+                  {
+                    x: "Tuesday",
+                    y: "4:00–7:59 p.m.",
+                    heat: 1137
+                  },
+                  {
+                    x: "Tuesday",
+                    y: "8:00–11:59 p.m.",
+                    heat: 986
+                  },
+                  {
+                    x: "Wednesday",
+                    y: "Midnight–3:59 a.m.",
+                    heat: 465
+                  },
+                  {
+                    x: "Wednesday",
+                    y: "4:00–7:59 a.m.",
+                    heat: 616
+                  },
+                  {
+                    x: "Wednesday",
+                    y: "8:00–11:59 a.m.",
+                    heat: 627
+                  },
+                  {
+                    x: "Wednesday",
+                    y: "Noon–3:59 p.m.",
+                    heat: 914
+                  },
+                  {
+                    x: "Wednesday",
+                    y: "4:00–7:59 p.m.",
+                    heat: 1159
+                  },
+                  {
+                    x: "Wednesday",
+                    y: "8:00–11:59 p.m.",
+                    heat: 1066
+                  },
+                  {
+                    x: "Thursday",
+                    y: "Midnight–3:59 a.m.",
+                    heat: 584
+                  },
+                  {
+                    x: "Thursday",
+                    y: "4:00–7:59 a.m.",
+                    heat: 718
+                  },
+                  {
+                    x: "Thursday",
+                    y: "8:00–11:59 a.m.",
+                    heat: 660
+                  },
+                  {
+                    x: "Thursday",
+                    y: "Noon–3:59 p.m.",
+                    heat: 966
+                  },
+                  {
+                    x: "Thursday",
+                    y: "4:00–7:59 p.m.",
+                    heat: 1161
+                  },
+                  {
+                    x: "Thursday",
+                    y: "8:00–11:59 p.m.",
+                    heat: 1186
+                  },
+                  {
+                    x: "Friday",
+                    y: "Midnight–3:59 a.m.",
+                    heat: 715
+                  },
+                  {
+                    x: "Friday",
+                    y: "4:00–7:59 a.m.",
+                    heat: 747
+                  },
+                  {
+                    x: "Friday",
+                    y: "8:00–11:59 a.m.",
+                    heat: 738
+                  },
+                  {
+                    x: "Friday",
+                    y: "Noon–3:59 p.m.",
+                    heat: 1056
+                  },
+                  {
+                    x: "Friday",
+                    y: "4:00–7:59 p.m.",
+                    heat: 1426
+                  },
+                  {
+                    x: "Friday",
+                    y: "8:00–11:59 p.m.",
+                    heat: 1631
+                  },
+                  {
+                    x: "Saturday",
+                    y: "Midnight–3:59 a.m.",
+                    heat: 1383
+                  },
+                  {
+                    x: "Saturday",
+                    y: "4:00–7:59 a.m.",
+                    heat: 641
+                  },
+                  {
+                    x: "Saturday",
+                    y: "8:00–11:59 a.m.",
+                    heat: 635
+                  },
+                  {
+                    x: "Saturday",
+                    y: "Noon–3:59 p.m.",
+                    heat: 1034
+                  },
+                  {
+                    x: "Saturday",
+                    y: "4:00–7:59 p.m.",
+                    heat: 1400
+                  },
+                  {
+                    x: "Saturday",
+                    y: "8:00–11:59 p.m.",
+                    heat: 1593
+                  },
+                  {
+                    x: "Sunday",
+                    y: "Midnight–3:59 a.m.",
+                    heat: 1486
+                  },
+                  {
+                    x: "Sunday",
+                    y: "4:00–7:59 a.m.",
+                    heat: 695
+                  },
+                  {
+                    x: "Sunday",
+                    y: "8:00–11:59 a.m.",
+                    heat: 564
+                  },
+                  {
+                    x: "Sunday",
+                    y: "Noon–3:59 p.m.",
+                    heat: 932
+                  },
+                  {
+                    x: "Sunday",
+                    y: "4:00–7:59 p.m.",
+                    heat: 1292
+                  },
+                  {
+                    x: "Sunday",
+                    y: "8:00–11:59 p.m.",
+                    heat: 1211
+                  }
+                ];
+              }
+            </script>
+          </div>
+        </div>
+      </div>
+      </div>
+    </main>
+    <!--
+      <table id="extendedCallTable" class="table table-sm table-bordered" style="min-width: 20rem; max-width: 20rem; min-height: 20rem; max-height: 20rem;">
+        <tbody>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+      <table id="extendedPutTable" class="table table-sm table-bordered" style="min-width: 20rem; max-width: 20rem; min-height: 20rem; max-height: 20rem;">
+        <tbody>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+      </table>
+      -->
     <script type="module" src="analytics.js"></script>
     <script type="module" src="black-scholes.js"></script>
   </body>
