@@ -1,13 +1,13 @@
-﻿let simpleCalculationsTimer = 0;
-const simpleCalculationsDelay = 500;
+﻿let singleCalculationTimer = 0;
+const singleCalculationDelay = 500;
 
-window.onload = (event) => { simpleCalculationsAndUpdateUi(); };
+window.onload = (event) => { singleCalculationAndUpdateUi(); };
 
-$("#simpleCalculations input[type='number']").on("change", function() {
-    window.clearTimeout(simpleCalculationsTimer);
+$("#singleCalculation input[type='number']").on("change", function() {
+    window.clearTimeout(singleCalculationTimer);
 
-    simpleCalculationsTimer = window.setTimeout(
-        simpleCalculationsAndUpdateUi, simpleCalculationsDelay);
+    singleCalculationTimer = window.setTimeout(
+        singleCalculationAndUpdateUi, singleCalculationDelay);
 });
 
 // Simplified version of the Abramowitz & Stegun formula 7.1.26,
@@ -80,7 +80,7 @@ function blackScholesPrices(currentPrice, strikePrice, expiration, interestRate,
     return { putPrice: putPrice, callPrice: callPrice};
 }
 
-function simpleCalculationsAndUpdateUi() {
+function singleCalculationAndUpdateUi() {
 
     $("#currentPriceSimpleDisplay").text($("#currentPrice").val());
     $("#strikePriceSimpleDisplay").text($("#strikePrice").val());
