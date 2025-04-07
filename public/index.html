@@ -30,7 +30,6 @@
         </div>
         <div class="offcanvas-body">
           <div id="singleCalculation">
-            <span class="badge bg-primary mb-2">Single Calculation</span>
             <div class="mb-3">
               <label for="currentPrice" class="form-label">Current Asset Price</label>
               <input type="number" id="currentPrice" class="form-control" value="100.00" min="0.01" max="1000.00" step="0.1">
@@ -75,7 +74,7 @@
       </div>
       <!-- offcanvas-body -->
       <div class="container-fluid container border rounded-3 shadow-lg mt-3">
-        <div class="d-flex align-items-center pt-3">
+        <div class="d-flex align-items-center py-3">
           <!-- Sidebar toggle button -->
           <div>
             <button class="btn btn-light" data-bs-toggle="offcanvas" data-bs-target="#offcanvas">
@@ -86,9 +85,8 @@
             <h2 class="fw-bold">Black-Scholes Pricing Model</h2>
           </div>
         </div>
-        <div class="row px-2 px-md-5 my-3 border-top">
-          <div class="mt-3">
-            <span class="badge bg-primary mb-2">Single Calculation</span>
+        <div class="border-top px-2 px-md-5 py-4">
+          <div>
             <table class="table table-sm table-bordered" id="singleCalculationDisplayTable">
               <thead>
                 <tr>
@@ -127,9 +125,13 @@
             </div>
           </div>
         </div>
-        <div class="row px-2 px-md-5 border-top">
-          <div class="mt-3">
-            <span class="badge bg-primary mb-2">Extended Calculation</span>
+        <div class="border-top px-2 px-md-5 py-3">
+          <div class="d-flex flex-column text-center">
+            <h3 class="fw-bold">Options Prices Heatmap</h3>
+            <span>
+                Visualize the impact of varying spot prices and volatility on option pricing
+                through an interactive heatmap, with the strike price held constant throughout
+            </span>
           </div>
           <div class="d-flex flex-row">
             <div id="heatMapContainer" style="width: 30rem; height: 30rem;"></div>
@@ -377,8 +379,8 @@
             </script>
           </div>
         </div>
-        <div class="d-flex align-items-center px-2 px-md-5 mt-3 border-top">
-          <div class="my-3 flex-fill">
+        <div class="d-flex align-items-center border-top px-2 px-md-5 pt-3 pb-4">
+          <div class="flex-fill">
             <small>Created by: <a href="https://www.linkedin.com/in/dzmitry-baryshau">Dzmitry Baryshau</a></small> <img src="linkedin.svg" width="16" height="16" alt="LinkedIn">
           </div>
           <div>
