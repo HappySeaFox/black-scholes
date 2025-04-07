@@ -63,9 +63,9 @@ function blackScholesPrices(currentPrice, strikePrice, expiration, interestRate,
 
     const S = currentPrice;
     const K = strikePrice;
-    const T = expiration;
-    const r = interestRate * 0.01; // in percents
-    const sigma = volatility * 0.01; // in percents
+    const T = expiration / 12.0; // from months to years
+    const r = interestRate * 0.01; // from percents to fraction
+    const sigma = volatility * 0.01; // from percents to fraction
 
     // d1 and d2 are intermediate variables used in the Black–Scholes formula
     //
@@ -85,7 +85,7 @@ function singleCalculationAndUpdateUi() {
     $("#currentPriceSimpleDisplay").text($("#currentPrice").val());
     $("#strikePriceSimpleDisplay").text($("#strikePrice").val());
     const expiration = $("#expiration").val();
-    $("#expirationSimpleDisplay").text(expiration + " " + (expiration === "1" ? "year" : "years"));
+    $("#expirationSimpleDisplay").text(expiration + " " + (expiration === "1" ? "month" : "months"));
     $("#interestRateSimpleDisplay").text($("#interestRate").val() + "%");
     $("#volatilitySimpleDisplay").text($("#volatility").val() + "%");
 
