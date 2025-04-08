@@ -135,10 +135,14 @@ function calculateOptionsPrices(minPrice, maxPrice, minVolatility, maxVolatility
         putHeatMap: []
     };
 
-    for (let price = minPrice; price <= maxPrice; price += priceIncrement) {
+    // For inaccurate floating point number math
+    //
+    const EPSILON = 0.001;
+
+    for (let price = minPrice; maxPrice - price > EPSILON; price += priceIncrement) {
         const priceString = price.toFixed(2);
 
-        for (let volatility = minVolatility; volatility <= maxVolatility; volatility += volatilityIncrement) {
+        for (let volatility = minVolatility; maxVolatility - volatility > EPSILON; volatility += volatilityIncrement) {
             const prices = blackScholesPrices(price,
                 strikePrice,
                 expiration,
