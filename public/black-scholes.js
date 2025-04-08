@@ -196,6 +196,13 @@ function heatmapCalculationAndUpdateUi() {
         chart.title(title);
         chart.tooltip(false);
         chart.interactivity().selectionMode("none");
+        chart.xAxis().stroke(null);
+        chart.yAxis().stroke(null);
+
+        // Make the axis labels smaller
+        //
+        chart.xAxis().labels().fontSize(chart.xAxis().labels().fontSize() - 1);
+        chart.yAxis().labels().fontSize(chart.xAxis().labels().fontSize() - 1);
 
         // Custom color scale
         //
@@ -220,6 +227,6 @@ function heatmapCalculationAndUpdateUi() {
         $("div.anychart-credits").remove();
     }
 
-    setupChart(heatMapData.callHeatMap, "CALL Prices", ["#00ccff", "#ffcc00"], "heatMapCallContainer");
-    setupChart(heatMapData.putHeatMap,  "PUT Prices",  ["#00ccff", "#ffcc00"], "heatMapPutContainer");
+    setupChart(heatMapData.callHeatMap, "CALL Prices by Volatility and Asset Price", ["#00ccff", "#ffcc00"], "heatMapCallContainer");
+    setupChart(heatMapData.putHeatMap,  "PUT Prices by Volatility and Asset Price",  ["#00ccff", "#ffcc00"], "heatMapPutContainer");
 }
