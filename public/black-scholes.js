@@ -123,8 +123,8 @@ function singleCalculationAndUpdateUi() {
 function calculateOptionsPrices(minPrice, maxPrice, minVolatility, maxVolatility,
                                 strikePrice, expiration, interestRate) {
 
-    const priceIncrement = (maxPrice - minPrice) / 8.0;
-    const volatilityIncrement = (maxVolatility - minVolatility) / 8.0;
+    const priceIncrement = (maxPrice - minPrice) / 7.0;
+    const volatilityIncrement = (maxVolatility - minVolatility) / 7.0;
 
     if (priceIncrement <= 0 || volatilityIncrement <= 0) {
         return null;
@@ -139,10 +139,10 @@ function calculateOptionsPrices(minPrice, maxPrice, minVolatility, maxVolatility
     //
     const EPSILON = 0.001;
 
-    for (let price = minPrice; maxPrice - price > EPSILON; price += priceIncrement) {
+    for (let price = minPrice; price - maxPrice < EPSILON; price += priceIncrement) {
         const priceString = price.toFixed(2);
 
-        for (let volatility = minVolatility; maxVolatility - volatility > EPSILON; volatility += volatilityIncrement) {
+        for (let volatility = minVolatility; volatility - maxVolatility < EPSILON; volatility += volatilityIncrement) {
             const prices = blackScholesPrices(price,
                 strikePrice,
                 expiration,
