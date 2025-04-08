@@ -1,7 +1,7 @@
-﻿let singleCalculationTimer = 0;
+﻿// Calculate and display a single CALL and PUT price
+//
+let singleCalculationTimer = 0;
 const singleCalculationDelay = 500;
-
-window.onload = (event) => { singleCalculationAndUpdateUi(); };
 
 $("#singleCalculation input[type='number']").on("change", function() {
     window.clearTimeout(singleCalculationTimer);
@@ -9,6 +9,25 @@ $("#singleCalculation input[type='number']").on("change", function() {
     singleCalculationTimer = window.setTimeout(
         singleCalculationAndUpdateUi, singleCalculationDelay);
 });
+
+// Calculate and display a heatmap with CALL and PUT prices
+//
+let heatmapCalculationTimer = 0;
+const heatmapCalculationDelay = 500;
+
+$("#heatmapCalculation input[type='number']").on("change", function() {
+    window.clearTimeout(heatmapCalculationTimer);
+
+    heatmapCalculationTimer = window.setTimeout(
+        heatmapCalculationAndUpdateUi, heatmapCalculationDelay);
+});
+
+// Calculate everything on load
+//
+window.onload = function() {
+    singleCalculationAndUpdateUi();
+    heatmapCalculationAndUpdateUi();
+};
 
 // Simplified version of the Abramowitz & Stegun formula 7.1.26,
 // with rather good accuracy of 10^-5.
@@ -97,4 +116,106 @@ function singleCalculationAndUpdateUi() {
 
     $("#callPrice").text(prices.callPrice.toFixed(2));
     $("#putPrice").text(prices.putPrice.toFixed(2));
+}
+
+// Calculate options prices for the given formula parameters
+//
+function calculateOptionsPrices(minPrice, maxPrice, minVolatility, maxVolatility,
+                                strikePrice, expiration, interestRate) {
+
+    const priceIncrement = (maxPrice - minPrice) / 8.0;
+    const volatilityIncrement = (maxVolatility - minVolatility) / 8.0;
+
+    if (priceIncrement <= 0 || volatilityIncrement <= 0) {
+        return null;
+    }
+
+    let heatMap = {
+        callHeatMap: [],
+        putHeatMap: []
+    };
+
+    for (let price = minPrice; price <= maxPrice; price += priceIncrement) {
+        const priceString = price.toFixed(2);
+
+        for (let volatility = minVolatility; volatility <= maxVolatility; volatility += volatilityIncrement) {
+            const prices = blackScholesPrices(price,
+                strikePrice,
+                expiration,
+                interestRate,
+                volatility);
+
+            const volatilityString = volatility.toFixed(2);
+
+            heatMap.callHeatMap.push({
+                x: priceString,
+                y: volatilityString,
+                heat: prices.callPrice.toFixed(2)
+            });
+            heatMap.putHeatMap.push({
+                x: priceString,
+                y: volatilityString,
+                heat: prices.putPrice.toFixed(2)
+            });
+        }
+    }
+
+    return heatMap;
+}
+
+function heatmapCalculationAndUpdateUi() {
+
+    $("#heatMapCallContainer").children().remove();
+    $("#heatMapPutContainer").children().remove();
+
+    const heatMapData = calculateOptionsPrices(
+                            parseFloat($("#minPrice").val()),
+                            parseFloat($("#maxPrice").val()),
+                            parseFloat($("#minVolatility").val()),
+                            parseFloat($("#maxVolatility").val()),
+                            $("#strikePrice").val(),
+                            $("#expiration").val(),
+                            $("#interestRate").val());
+
+    if (heatMapData == null) {
+        $("#heatMapCallContainer").append("<p class='mt-3 fw-bold text-danger'>Invalid range. Please check the heatmap parameters.</p>")
+        $("#heatMapPutContainer").append("<p class='mt-3 fw-bold text-danger'>Invalid range. Please check the heatmap parameters.</p>")
+        return;
+    }
+
+    function setupChart(data, title, colors, container) {
+
+        let chart = anychart.heatMap(data);
+
+        // Basic setup
+        //
+        chart.title(title);
+        chart.tooltip(false);
+        chart.interactivity().selectionMode("none");
+
+        // Custom color scale
+        //
+        let customColorScale = anychart.scales.linearColor();
+        customColorScale.colors(colors);
+        chart.colorScale(customColorScale);
+
+        // Simulate disabled hover events
+        //
+        chart.stroke("white", 1);
+        chart.hovered().stroke("white", 1);
+        chart.hovered().fill(function() {
+            return this.sourceColor;
+        });
+        chart.labels().fontColor("black");
+
+        chart.container(container);
+        chart.draw();
+
+        // Disable AnyChart Trial message
+        //
+        $("div.anychart-credits").remove();
+    }
+
+    setupChart(heatMapData.callHeatMap, "CALL Prices", ["#00ccff", "#ffcc00"], "heatMapCallContainer");
+    setupChart(heatMapData.putHeatMap,  "PUT Prices",  ["#00ccff", "#ffcc00"], "heatMapPutContainer");
 }
