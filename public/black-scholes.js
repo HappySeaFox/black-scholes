@@ -201,8 +201,8 @@ function heatmapCalculationAndUpdateUi() {
 
         // Make the axis labels smaller
         //
-        chart.xAxis().labels().fontSize(chart.xAxis().labels().fontSize() - 1);
-        chart.yAxis().labels().fontSize(chart.xAxis().labels().fontSize() - 1);
+        chart.xAxis().labels().fontSize(chart.xAxis().labels().fontSize() - 2);
+        chart.yAxis().labels().fontSize(chart.yAxis().labels().fontSize() - 1);
 
         // Custom color scale
         //
