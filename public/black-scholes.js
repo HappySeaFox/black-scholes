@@ -15,7 +15,7 @@ $("#singleCalculation input[type='number']").on("change", function() {
 let heatmapCalculationTimer = 0;
 const heatmapCalculationDelay = 500;
 
-$("#heatmapCalculation input[type='number']").on("change", function() {
+$("#singleCalculation input[type='number'], #heatmapCalculation input[type='number']").on("change", function() {
     window.clearTimeout(heatmapCalculationTimer);
 
     heatmapCalculationTimer = window.setTimeout(
