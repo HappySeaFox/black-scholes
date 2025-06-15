@@ -36,7 +36,8 @@ window.onload = function() {
 //
 function normalCDF(x) {
 
-    // Simplified approximation coefficients from Morris Hart, 1968
+    // Simplified approximation coefficients from
+    // John F. Hart "Computer Approximations". John Wiley & Sons, 1968.
     //
     const a1 = 0.319381530;
     const a2 = -0.356563782;
