@@ -1,15 +1,12 @@
 .attention-blink {
-  animation: blink 0.5s linear 2;
+  animation: blink 0.5s steps(2, end) 2;
 }
 
 @keyframes blink {
-  25% {
-    opacity: 0.5;
-  }
-  50% {
+  0% {
     opacity: 0;
   }
-  75% {
-    opacity: 0.5;
+  100% {
+    opacity: 1;
   }
 }
