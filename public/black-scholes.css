@@ -1,5 +1,5 @@
 .attention-blink {
-  animation: blink 1s linear 2;
+  animation: blink 0.5s linear 2;
 }
 
 @keyframes blink {
