@@ -1,12 +1,10 @@
 .attention-blink {
+  border: 2px solid red;
   animation: blink 0.5s steps(2, end) 2;
 }
 
 @keyframes blink {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
+  50% {
+    border-color: transparent;
   }
 }
