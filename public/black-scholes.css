@@ -1,6 +1,6 @@
 .attention-blink {
   border: 2px solid red;
-  animation: blink 0.5s steps(2, end) 2;
+  animation: blink 1s linear 3;
 }
 
 @keyframes blink {
