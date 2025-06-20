@@ -1,10 +1,10 @@
 .attention-blink {
-  border: 2px solid red;
-  animation: blink 1s linear 3;
+  border: 2px solid transparent;
+  animation: blink 0.75s linear 3;
 }
 
 @keyframes blink {
   50% {
-    border-color: transparent;
+    border-color: red;
   }
 }
